@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="@string/label_setting_locale_title">
+        <Preference
+            android:key="@string/key_setting_locale"
+            android:summary="@string/label_setting_locale_summary"
+            android:title="@string/label_setting_locale_title" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/notification_label">
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="@string/key_release_reminder"
+            android:summary="@string/summary_release_reminder"
+            android:title="@string/title_release_reminder" />
+
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="@string/key_release_daily"
+            android:summary="@string/summary_release_daily"
+            android:title="@string/title_release_daily" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

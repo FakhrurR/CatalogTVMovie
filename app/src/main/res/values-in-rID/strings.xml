@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">MyMoVieBi</string>
+    <string name="title_home">Film</string>
+    <string name="title_dashboard">Acara TV</string>
+    <string name="empty_data">DATA KOSONG</string>
+
+    <string name="dummy_title">Toy Story 4</string>
+    <string name="original_title">Toy Story 4</string>
+    <string name="date_release">20 January 2019</string>
+    <string name="dummy_overview">Woody has always been confident about his place in the world and that his priority is taking care of his kid, whether that\'s Andy or Bonnie. But when Bonnie adds a reluctant new toy called Forky to her room, a road trip adventure alongside old and new friends will show Woody how big the world can be for a toy.</string>
+    <string name="dummy_rate">7.4</string>
+
+    <string name="popularity">790,000</string>
+    <string name="original_language">US</string>
+    <string name="original_name">Nama Asli</string>
+    <string name="label_rate">Rating</string>
+    <string name="label_release_date">Tanggal Rilis</string>
+    <string name="popularity_label">Popularitas</string>
+    <string name="original_language_label">Bahasa Asli</string>
+    <string name="overview_label">Sinopsis</string>
+    <string name="now_playing">Sedang Tayang</string>
+    <string name="upcoming">Akan Tayang</string>
+    <string name="on_the_air">Disiarkan</string>
+    <string name="airing_today">Ditayangkan Hari ini</string>
+    <string name="navigation_drawer_open">Membuka navigasi</string>
+    <string name="navigation_drawer_close">Menutup navigasi</string>
+    <string name="nav_header_subtitle">fakrijal@gmail.com</string>
+    <string name="nav_header_desc">Kepala navigasi</string>
+    <string name="action_settings">Pengaturan</string>
+    <string name="trailer_label">Trailer</string>
+    <string name="favorite">Favorit</string>
+    <string name="search">Cari</string>
+    <string name="communicate">Komunikasi</string>
+
+    <string name="notification_label">Notifikasi</string>
+
+
+    <string name="key_setting_locale">key_setting_locale</string>
+    <string name="label_setting_locale_summary">Indonesia</string>
+    <string name="label_setting_locale_title">Bahasa</string>
+    <string name="repeat_notif">Notifikasi Film dan Acara&#8230;</string>
+
+    <string name="key_release_daily">daily_reminder</string>
+    <string name="summary_release_daily">Mengirimkan notifikasi ke pengguna untuk kembali ke Aplikasi</string>
+    <string name="title_release_daily">Pengingat Harian</string>
+
+    <string name="key_release_reminder">release_reminder</string>
+    <string name="summary_release_reminder">Mengirimkan notifikasi ke pengguna berupa informasi film yang rilis hari ini</string>
+    <string name="title_release_reminder">Pengingat Rilis Hari ini</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="appwidget_text">Katalog Film diSuka</string>
+    <string name="add_widget">Add widget</string>
+
+    <string name="search_found">Silahkan Tap tombol Cari diatas untuk Mencari</string>
+
+</resources>

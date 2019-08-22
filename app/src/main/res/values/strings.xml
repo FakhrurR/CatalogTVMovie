@@ -1,0 +1,64 @@
+<resources>
+    <string name="app_name">MyMoVieBi</string>
+    <string name="title_home">Movie</string>
+    <string name="title_dashboard">TV Show</string>
+    <string name="empty_data">NO DATA</string>
+
+
+    <string name="dummy_title">Toy Story 4</string>
+    <string name="original_title">Toy Story 4</string>
+    <string name="date_release">20 January 2019</string>
+    <string name="dummy_overview">Woody has always been confident about his place in the world and that his priority is taking care of his kid, whether that\'s Andy or Bonnie. But when Bonnie adds a reluctant new toy called Forky to her room, a road trip adventure alongside old and new friends will show Woody how big the world can be for a toy.</string>
+    <string name="dummy_rate">7.4</string>
+
+    <string name="popularity">790,000</string>
+    <string name="original_language">US</string>
+    <string name="original_name">Original Name</string>
+    <string name="label_rate">Rate</string>
+    <string name="label_release_date">Release Date</string>
+    <string name="popularity_label">Popularity</string>
+    <string name="original_language_label">Original Language</string>
+    <string name="overview_label">Overview</string>
+    <string name="now_playing">Now Playing</string>
+    <string name="upcoming">Upcoming</string>
+    <string name="on_the_air">On The Air</string>
+    <string name="airing_today">Airing Today</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_subtitle">fakrijal@gmail.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="trailer_label">Trailer</string>
+    <string name="favorite">Favorite</string>
+    <string name="search">Search</string>
+    <string name="communicate">Communicate</string>
+
+    <string-array name="spin_movie">
+        <item>Movie</item>
+        <item>TVShow</item>
+    </string-array>
+
+
+    <string name="notification_label">Notification</string>
+
+    <string name="key_setting_locale">key_setting_locale</string>
+    <string name="label_setting_locale_summary">English</string>
+    <string name="label_setting_locale_title">Language</string>
+    <string name="repeat_notif">Movie and TV Notification&#8230;</string>
+
+    <string name="key_release_reminder">release_reminder</string>
+    <string name="summary_release_reminder">Reminder showing the movie and tv that released today</string>
+    <string name="title_release_reminder">Release Reminder</string>
+
+    <string name="key_release_daily">daily_reminder</string>
+    <string name="summary_release_daily">Reminder for return app</string>
+    <string name="title_release_daily">Daily Reminder</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="appwidget_text">Favorite Catalog Movie</string>
+    <string name="add_widget">Add widget</string>
+    <string name="search_found">Please Click Button Search to find</string>
+    <string name="switchOn">On</string>
+    <string name="switchOff">Off</string>
+</resources>
