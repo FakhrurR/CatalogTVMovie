@@ -34,17 +34,13 @@ import retrofit2.Response;
 
 public class DetailMovieActivity extends AppCompatActivity {
 
+    public static final String EXTRA_ITEM = "movie_intent";
     private ActivityDetailBinding activityDetailBinding;
     private TrailerAdapter adapter;
     private MovieResponse.ResultsBean resultsBean;
-
     private MovieDatabase movieDatabase;
-
     private List<TrailerResponse.ResultsBean> trailers = new ArrayList<>();
-
     private boolean isFavorite = false;
-
-    public static final String EXTRA_ITEM = "movie_intent";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

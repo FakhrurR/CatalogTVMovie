@@ -16,7 +16,7 @@ public abstract class MovieDatabase extends RoomDatabase {
 
     private static volatile MovieDatabase instance;
 
-    public static MovieDatabase getDatabase(Context context) {
+    public static synchronized MovieDatabase getDatabase(Context context) {
         if (instance == null) {
             instance = Room.databaseBuilder(context.getApplicationContext(),
                     MovieDatabase.class, "tmdb_movie")
@@ -31,5 +31,4 @@ public abstract class MovieDatabase extends RoomDatabase {
     public abstract MovieDao movieDao();
 
     public abstract TVShowDao tvShowDao();
-
 }

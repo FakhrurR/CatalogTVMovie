@@ -1,16 +1,13 @@
 package com.example.mymoviebi.ui.fragment.setting;
 
 
-import android.app.Activity;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.util.Log;
 import android.widget.Toast;
 
 import androidx.preference.Preference;
-import androidx.preference.PreferenceFragment;
 import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.SwitchPreference;
 
@@ -94,21 +91,21 @@ public class SettingFragment extends PreferenceFragmentCompat implements Prefere
 
         if (key.equals(RELEASE_REMINDER)) {
             if (isOn) {
-                 dailyAlarmReceiver.setRepeatingAlarm(getActivity());
-                Toast.makeText(getActivity(),R.string.switchOn,Toast.LENGTH_SHORT).show();
+                dailyAlarmReceiver.setRepeatingAlarm(getActivity());
+                Toast.makeText(getActivity(), R.string.switchOn, Toast.LENGTH_SHORT).show();
             } else {
                 dailyAlarmReceiver.cancelAlarm(getActivity());
-                Toast.makeText(getActivity(),R.string.switchOff,Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), R.string.switchOff, Toast.LENGTH_SHORT).show();
             }
-        } else if (key.equals(RELEASE_TODAY)){
+        } else if (key.equals(RELEASE_TODAY)) {
             if (isOn) {
                 displayUpcomingMovie();
-                Toast.makeText(getActivity(),R.string.switchOn,Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), R.string.switchOn, Toast.LENGTH_SHORT).show();
             } else {
                 releaseReminderToday.cancelAlarm(getActivity());
-                Toast.makeText(getActivity(),R.string.switchOff,Toast.LENGTH_SHORT).show();
-                }
+                Toast.makeText(getActivity(), R.string.switchOff, Toast.LENGTH_SHORT).show();
             }
+        }
 
         return true;
     }

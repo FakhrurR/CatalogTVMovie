@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.listfavorite">
 
-    <uses-permission android:name="com.example.mymoviebi.READ_DATABASE"/>
-    <uses-permission android:name="com.example.mymoviebi.WRITE_DATABASE"/>
+    <uses-permission android:name="com.example.mymoviebi.READ_DATABASE" />
+    <uses-permission android:name="com.example.mymoviebi.WRITE_DATABASE" />
 
     <application
         android:allowBackup="true"
@@ -14,7 +14,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:theme="@style/AppTheme2" android:name=".DetailActivity"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

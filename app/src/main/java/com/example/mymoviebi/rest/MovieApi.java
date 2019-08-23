@@ -4,8 +4,6 @@ import com.example.mymoviebi.modul.MovieResponse;
 import com.example.mymoviebi.modul.TVShowResponse;
 import com.example.mymoviebi.modul.TrailerResponse;
 
-import java.text.DateFormat;
-
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
@@ -27,7 +25,7 @@ public interface MovieApi {
 
     @GET("movie/{movie_id}/videos")
     Call<TrailerResponse> getTrailersByMovieId(
-            @Path("movie_id") int movieId,
+            @Path("movie_id") long movieId,
             @Query("api_key") String apiKey
 
     );
@@ -60,5 +58,5 @@ public interface MovieApi {
             @Query("api_key") String apiKey,
             @Query("primary_release_date.gte") String datePrimary,
             @Query("primary_release_date.lte") String dateSecond
-            );
+    );
 }

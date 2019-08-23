@@ -67,12 +67,12 @@
         <receiver
             android:name=".alarm.DailyAlarmReminder"
             android:enabled="true"
-            android:exported="false"/>
+            android:exported="false" />
 
         <receiver
             android:name=".alarm.ReleaseReminderToday"
             android:enabled="true"
-            android:exported="false"/>
+            android:exported="false" />
 
         <service
             android:name=".ui.widget.StackWidgetService"

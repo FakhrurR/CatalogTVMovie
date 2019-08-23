@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
@@ -45,55 +46,52 @@ public class MovieResponse {
             }
         };
         public static final String TABLE_NAME = "movie";
-        /**
-         * vote_count : 982
-         * id : 429617
-         * video : false
-         * vote_average : 7.8
-         * title : Spider-Man: Far from Home
-         * popularity : 462.096
-         * poster_path : /rjbNpRMoVvqHmhmksbokcyCr7wn.jpg
-         * original_language : en
-         * original_title : Spider-Man: Far from Home
-         * genre_ids : [28,12,878]
-         * backdrop_path : /dihW2yTsvQlust7mSuAqJDtqW7k.jpg
-         * adult : false
-         * overview : Peter Parker and his friends go on a summer trip to Europe. However, they will hardly be able to rest - Peter will have to agree to help Nick Fury uncover the mystery of creatures that cause natural disasters and destruction throughout the continent.
-         * release_date : 2019-06-28
-         */
+        public static final String COLUMN_ID = "id";
+        public static final String COLUMN_VOTE_AVERAGE = "vote_average";
+        public static final String COLUMN_TITLE = "title";
+        public static final String COLUMN_POPULARITY = "popularity";
+        public static final String COLUMN_POSTER_PATH = "poster_path";
+        public static final String COLUMN_ORIGINAL_LANGUAGE = "original_language";
+        public static final String COLUMN_ORIGINAL_TITLE = "original_title";
+        public static final String COLUMN_BACKDROP_PATH = "backdrop_path";
+        public static final String COLUMN_OVERVIEW = "overview";
+        public static final String COLUMN_RELEASE_DATE = "release_date";
 
-        @SerializedName("vote_count")
-        private int voteCount;
+
         @SerializedName("id")
         @PrimaryKey
-        private int id;
-        @SerializedName("video")
-        private boolean video;
+        @ColumnInfo(name = COLUMN_ID)
+        public int id;
         @SerializedName("vote_average")
+        @ColumnInfo(name = COLUMN_VOTE_AVERAGE)
         private double voteAverage;
         @SerializedName("title")
+        @ColumnInfo(name = COLUMN_TITLE)
         private String title;
         @SerializedName("popularity")
+        @ColumnInfo(name = COLUMN_POPULARITY)
         private double popularity;
         @SerializedName("poster_path")
+        @ColumnInfo(name = COLUMN_POSTER_PATH)
         private String posterPath;
         @SerializedName("original_language")
+        @ColumnInfo(name = COLUMN_ORIGINAL_LANGUAGE)
         private String originalLanguage;
         @SerializedName("original_title")
+        @ColumnInfo(name = COLUMN_ORIGINAL_TITLE)
         private String originalTitle;
         @SerializedName("backdrop_path")
+        @ColumnInfo(name = COLUMN_BACKDROP_PATH)
         private String backdropPath;
-        @SerializedName("adult")
-        private boolean adult;
         @SerializedName("overview")
+        @ColumnInfo(name = COLUMN_OVERVIEW)
         private String overview;
         @SerializedName("release_date")
+        @ColumnInfo(name = COLUMN_RELEASE_DATE)
         private String releaseDate;
 
         protected ResultsBean(Parcel in) {
-            this.voteCount = in.readInt();
             this.id = in.readInt();
-            this.video = in.readByte() != 0;
             this.voteAverage = in.readDouble();
             this.title = in.readString();
             this.popularity = in.readDouble();
@@ -101,7 +99,6 @@ public class MovieResponse {
             this.originalLanguage = in.readString();
             this.originalTitle = in.readString();
             this.backdropPath = in.readString();
-            this.adult = in.readByte() != 0;
             this.overview = in.readString();
             this.releaseDate = in.readString();
         }
@@ -110,12 +107,31 @@ public class MovieResponse {
 
         }
 
-        public int getVoteCount() {
-            return voteCount;
-        }
+        public static MovieResponse.ResultsBean fromContentValues(ContentValues values) {
+            final MovieResponse.ResultsBean entityMovie = new MovieResponse.ResultsBean();
 
-        public void setVoteCount(int voteCount) {
-            this.voteCount = voteCount;
+            if (values.containsKey(COLUMN_ID)) {
+                entityMovie.id = values.getAsInteger(COLUMN_ID);
+            } else if (values.containsKey(COLUMN_VOTE_AVERAGE)) {
+                entityMovie.voteAverage = values.getAsDouble(COLUMN_VOTE_AVERAGE);
+            } else if (values.containsKey(COLUMN_TITLE)) {
+                entityMovie.title = values.getAsString(COLUMN_TITLE);
+            } else if (values.containsKey(COLUMN_POPULARITY)) {
+                entityMovie.popularity = values.getAsDouble(COLUMN_POPULARITY);
+            } else if (values.containsKey(COLUMN_POSTER_PATH)) {
+                entityMovie.posterPath = values.getAsString(COLUMN_POSTER_PATH);
+            } else if (values.containsKey(COLUMN_ORIGINAL_LANGUAGE)) {
+                entityMovie.originalLanguage = values.getAsString(COLUMN_ORIGINAL_LANGUAGE);
+            } else if (values.containsKey(COLUMN_ORIGINAL_TITLE)) {
+                entityMovie.originalTitle = values.getAsString(COLUMN_ORIGINAL_TITLE);
+            } else if (values.containsKey(COLUMN_BACKDROP_PATH)) {
+                entityMovie.backdropPath = values.getAsString(COLUMN_BACKDROP_PATH);
+            } else if (values.containsKey(COLUMN_OVERVIEW)) {
+                entityMovie.overview = values.getAsString(COLUMN_OVERVIEW);
+            } else if (values.containsKey(COLUMN_RELEASE_DATE)) {
+                entityMovie.releaseDate = values.getAsString(COLUMN_RELEASE_DATE);
+            }
+            return entityMovie;
         }
 
         public int getId() {
@@ -124,14 +140,6 @@ public class MovieResponse {
 
         public void setId(int id) {
             this.id = id;
-        }
-
-        public boolean isVideo() {
-            return video;
-        }
-
-        public void setVideo(boolean video) {
-            this.video = video;
         }
 
         public double getVoteAverage() {
@@ -190,14 +198,6 @@ public class MovieResponse {
             this.backdropPath = backdropPath;
         }
 
-        public boolean isAdult() {
-            return adult;
-        }
-
-        public void setAdult(boolean adult) {
-            this.adult = adult;
-        }
-
         public String getOverview() {
             return overview;
         }
@@ -221,9 +221,7 @@ public class MovieResponse {
 
         @Override
         public void writeToParcel(Parcel dest, int flags) {
-            dest.writeInt(this.voteCount);
             dest.writeInt(this.id);
-            dest.writeByte((byte) (this.video ? 1 : 0));
             dest.writeDouble(this.voteAverage);
             dest.writeString(this.title);
             dest.writeDouble(this.popularity);
@@ -231,34 +229,9 @@ public class MovieResponse {
             dest.writeString(this.originalLanguage);
             dest.writeString(this.originalTitle);
             dest.writeString(this.backdropPath);
-            dest.writeByte((byte) (this.adult ? 1 : 0));
             dest.writeString(this.overview);
             dest.writeString(this.releaseDate);
         }
 
-//        public static MovieResponse.ResultsBean fromContentValues(ContentValues values) {
-//            final MovieResponse.ResultsBean entityMovie = null;
-//
-//            if (values.containsKey(MOVIE_ID)) {
-//                entityMovie.id = values.getAsInteger(MOVIE_ID);
-//            } else if (values.containsKey(VOTE_AVERAGE)) {
-//                entityMovie.voteAverage = values.getAsDouble(VOTE_AVERAGE);
-//            } else if (values.containsKey(TITLE)) {
-//                entityMovie.title = values.getAsString(TITLE);
-//            } else if (values.containsKey(POPULARITY)) {
-//                entityMovie.popularity = values.getAsDouble(POPULARITY);
-//            } else if (values.containsKey(POSTER_URL)) {
-//                entityMovie.posterPath = values.getAsString(POSTER_URL);
-//            } else if (values.containsKey(ORIGINAL_LANGUAGE)) {
-//                entityMovie.originalLanguage = values.getAsString(ORIGINAL_LANGUAGE);
-//            } else if (values.containsKey(BACKDROP_URL)) {
-//                entityMovie.overview = values.getAsString(OVERVIEW);
-//            } else if (values.containsKey(RELEASE_DATE)) {
-//                entityMovie.releaseDate = values.getAsString(RELEASE_DATE);
-//            } else if (values.containsKey(GETFAVORITE)) {
-//                entityMovie.isFavorite = values.getAsBoolean(GETFAVORITE);
-//            }
-//            return entityMovie;
-//        }
     }
 }

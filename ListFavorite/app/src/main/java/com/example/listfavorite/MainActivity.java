@@ -11,7 +11,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.loader.app.LoaderManager;
 import androidx.loader.content.CursorLoader;
 import androidx.loader.content.Loader;
-import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.listfavorite.adapter.FavoriteAdapter;
 import com.example.listfavorite.databinding.ActivityMainBinding;
@@ -30,21 +30,6 @@ public class MainActivity extends AppCompatActivity {
 
     private FavoriteAdapter favoriteAdapter;
     private Cursor cursor;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        ActivityMainBinding activityMainBinding = DataBindingUtil.setContentView(this,R.layout.activity_main);
-
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(this , 2);
-//        list.setLayoutManager(new GridLayoutManager(list.getContext(),2));
-        activityMainBinding.recyclerViewMovie.setLayoutManager(gridLayoutManager);
-        favoriteAdapter = new FavoriteAdapter(cursor,getApplicationContext());
-        activityMainBinding.recyclerViewMovie.setAdapter(favoriteAdapter);
-
-        getSupportLoaderManager().initLoader(LOADER_MOVIE, null, mLoaderCallbacks);
-    }
-
     private LoaderManager.LoaderCallbacks<Cursor> mLoaderCallbacks =
             new LoaderManager.LoaderCallbacks<Cursor>() {
                 @NonNull
@@ -76,5 +61,19 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
             };
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        ActivityMainBinding activityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+//        list.setLayoutManager(new GridLayoutManager(list.getContext(),2));
+        activityMainBinding.recyclerViewMovie.setLayoutManager(linearLayoutManager);
+        favoriteAdapter = new FavoriteAdapter(cursor, getApplicationContext());
+        activityMainBinding.recyclerViewMovie.setAdapter(favoriteAdapter);
+
+        getSupportLoaderManager().initLoader(LOADER_MOVIE, null, mLoaderCallbacks);
+    }
 
 }

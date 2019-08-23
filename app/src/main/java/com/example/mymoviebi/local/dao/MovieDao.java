@@ -5,6 +5,7 @@ import android.database.Cursor;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
+import androidx.room.Update;
 
 import com.example.mymoviebi.modul.MovieResponse;
 
@@ -17,17 +18,23 @@ public interface MovieDao {
     @Insert
     void insertMovie(MovieResponse.ResultsBean movie);
 
+    @Insert
+    long insertId(MovieResponse.ResultsBean movie);
+
+    @Update
+    int updateMovie(MovieResponse.ResultsBean movie);
+
     @Query("SELECT * FROM movie")
     List<MovieResponse.ResultsBean> getAllMovies();
 
     @Query("SELECT * FROM movie")
     Cursor getAll();
 
-    @Query("SELECT COUNT(*) FROM movie WHERE id = :id")
-    int countMovieById(int id);
+    @Query("SELECT * FROM movie WHERE id = :id")
+    Cursor selectById(long id);
 
     @Query("SELECT COUNT(*) FROM movie WHERE id = :id")
-    long selectMovieById(int id);
+    int countMovieById(int id);
 
     @Query("DELETE FROM movie WHERE id = :id")
     void deleteMovie(int id);
