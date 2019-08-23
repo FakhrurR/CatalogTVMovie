@@ -1,8 +1,6 @@
 package com.example.listfavorite;
 
 import android.content.ContentValues;
-import android.database.Cursor;
-import android.net.Uri;
 import android.os.Parcel;
 import android.os.Parcelable;
 
@@ -10,25 +8,10 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-import static com.example.listfavorite.DatabaseContract.BACKDROP_URL;
-import static com.example.listfavorite.DatabaseContract.GETFAVORITE;
-import static com.example.listfavorite.DatabaseContract.MOVIE_ID;
-import static com.example.listfavorite.DatabaseContract.ORIGINAL_LANGUAGE;
-import static com.example.listfavorite.DatabaseContract.ORIGINAL_TITLE;
-import static com.example.listfavorite.DatabaseContract.OVERVIEW;
-import static com.example.listfavorite.DatabaseContract.POPULARITY;
-import static com.example.listfavorite.DatabaseContract.POSTER_URL;
-import static com.example.listfavorite.DatabaseContract.RELEASE_DATE;
-import static com.example.listfavorite.DatabaseContract.TITLE;
-import static com.example.listfavorite.DatabaseContract.VOTE_AVERAGE;
-import static com.example.listfavorite.DatabaseContract.getColumnDouble;
-import static com.example.listfavorite.DatabaseContract.getColumnInt;
-import static com.example.listfavorite.DatabaseContract.getColumnString;
+import static com.example.listfavorite.EntityMovie.TABLE_NAME;
 
-@Entity(tableName = EntityMovie.TABLE_NAME)
-public class EntityMovie implements Parcelable{
-
-    public static final String TABLE_NAME = "movie";
+@Entity(tableName = TABLE_NAME)
+public class EntityMovie implements Parcelable {
 
     @PrimaryKey
     @ColumnInfo(name = MOVIE_ID)
@@ -53,6 +36,34 @@ public class EntityMovie implements Parcelable{
     private String releaseDate;
     @ColumnInfo(name = GETFAVORITE)
     private boolean isFavorite;
+
+    public static final String AUTHORITY = "com.example.mymoviebi";
+
+    public static final String TABLE_NAME = "movie";
+
+    public static final String SCHEME = "content";
+
+    public static final String MOVIE_ID = "id";
+
+    public static final String TITLE = "title";
+
+    public static final String RELEASE_DATE = "release_date";
+
+    public static final String VOTE_AVERAGE = "vote_average";
+
+    public static final String OVERVIEW = "overview";
+
+    public static final String ORIGINAL_LANGUAGE = "original_language";
+
+    public static final String ORIGINAL_TITLE = "original_title";
+
+    public static final String POSTER_URL = "poster_url";
+
+    public static final String BACKDROP_URL = "backdrop_url";
+
+    public static final String POPULARITY = "popularity";
+
+    public static final String GETFAVORITE = "getFavorite";
 
     public EntityMovie() {
 
@@ -146,19 +157,6 @@ public class EntityMovie implements Parcelable{
         isFavorite = favorite;
     }
 
-    public EntityMovie(Cursor listFavourite) {
-        this.id = getColumnInt(listFavourite, MOVIE_ID);
-        this.title = getColumnString(listFavourite,TITLE);
-        this.releaseDate = getColumnString(listFavourite,RELEASE_DATE);
-        this.originalTitle = getColumnString(listFavourite, ORIGINAL_TITLE);
-        this.voteAverage = getColumnDouble(listFavourite,VOTE_AVERAGE);
-        this.overview = getColumnString(listFavourite,OVERVIEW);
-        this.popularity = getColumnDouble(listFavourite, POPULARITY);
-        this.originalLanguage = getColumnString(listFavourite,ORIGINAL_LANGUAGE);
-        this.posterPath = getColumnString(listFavourite,POSTER_URL);
-    }
-
-
     protected EntityMovie(Parcel in) {
         id = in.readInt();
         voteAverage = in.readDouble();
@@ -185,37 +183,28 @@ public class EntityMovie implements Parcelable{
         }
     };
 
-    public static EntityMovie fromContentValues(ContentValues values){
+    public static EntityMovie fromContentValues(ContentValues values) {
         final EntityMovie entityMovie = new EntityMovie();
 
-        if(values.containsKey(MOVIE_ID)){
+        if (values.containsKey(MOVIE_ID)) {
             entityMovie.id = values.getAsInteger(MOVIE_ID);
-        }
-        else if (values.containsKey(VOTE_AVERAGE)){
+        } else if (values.containsKey(VOTE_AVERAGE)) {
             entityMovie.voteAverage = values.getAsDouble(VOTE_AVERAGE);
-        }
-        else if (values.containsKey(TITLE)){
+        } else if (values.containsKey(TITLE)) {
             entityMovie.title = values.getAsString(TITLE);
-        }
-        else if (values.containsKey(POPULARITY)){
+        } else if (values.containsKey(POPULARITY)) {
             entityMovie.popularity = values.getAsDouble(POPULARITY);
-        }
-        else if (values.containsKey(POSTER_URL)){
+        } else if (values.containsKey(POSTER_URL)) {
             entityMovie.posterPath = values.getAsString(POSTER_URL);
-        }
-        else if (values.containsKey(ORIGINAL_LANGUAGE)){
+        } else if (values.containsKey(ORIGINAL_LANGUAGE)) {
             entityMovie.originalLanguage = values.getAsString(ORIGINAL_LANGUAGE);
-        }
-        else if (values.containsKey(ORIGINAL_TITLE)){
+        } else if (values.containsKey(ORIGINAL_TITLE)) {
             entityMovie.originalLanguage = values.getAsString(ORIGINAL_TITLE);
-        }
-        else if (values.containsKey(BACKDROP_URL)){
+        } else if (values.containsKey(BACKDROP_URL)) {
             entityMovie.overview = values.getAsString(OVERVIEW);
-        }
-        else if (values.containsKey(RELEASE_DATE)){
+        } else if (values.containsKey(RELEASE_DATE)) {
             entityMovie.releaseDate = values.getAsString(RELEASE_DATE);
-        }
-        else if (values.containsKey(GETFAVORITE)){
+        } else if (values.containsKey(GETFAVORITE)) {
             entityMovie.isFavorite = values.getAsBoolean(GETFAVORITE);
         }
         return entityMovie;

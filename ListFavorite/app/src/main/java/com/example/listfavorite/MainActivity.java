@@ -1,5 +1,9 @@
 package com.example.listfavorite;
 
+import android.database.Cursor;
+import android.net.Uri;
+import android.os.Bundle;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,15 +13,18 @@ import androidx.loader.content.CursorLoader;
 import androidx.loader.content.Loader;
 import androidx.recyclerview.widget.GridLayoutManager;
 
-import android.database.Cursor;
-import android.os.Bundle;
-
 import com.example.listfavorite.adapter.FavoriteAdapter;
 import com.example.listfavorite.databinding.ActivityMainBinding;
 
-import static com.example.listfavorite.DatabaseContract.CONTENT_URI;
+import static com.example.listfavorite.EntityMovie.TABLE_NAME;
+
 
 public class MainActivity extends AppCompatActivity {
+
+    public static final String AUTHORITY = "com.example.mymoviebi";
+
+    public static final Uri CONTENT_URI = Uri.parse(
+            "content://" + AUTHORITY + "/" + TABLE_NAME);
 
     private static final int LOADER_MOVIE = 1;
 
