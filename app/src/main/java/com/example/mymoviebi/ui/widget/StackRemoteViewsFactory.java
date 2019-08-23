@@ -22,14 +22,12 @@ import java.util.concurrent.ExecutionException;
 public class StackRemoteViewsFactory implements RemoteViewsService.RemoteViewsFactory {
 
     private final Context mContext;
-    private int mAppWidgetId;
     private List<MovieResponse.ResultsBean> mWidgetMovieItems = new ArrayList<>();
-    private RemoteViews rv;
 
 
     public StackRemoteViewsFactory(Context mContext, Intent intent) {
         this.mContext = mContext;
-        mAppWidgetId = intent.getIntExtra(AppWidgetManager.EXTRA_APPWIDGET_ID,
+        int mAppWidgetId = intent.getIntExtra(AppWidgetManager.EXTRA_APPWIDGET_ID,
                 AppWidgetManager.INVALID_APPWIDGET_ID);
     }
 
@@ -59,15 +57,12 @@ public class StackRemoteViewsFactory implements RemoteViewsService.RemoteViewsFa
     public RemoteViews getViewAt(int position) {
 
         RemoteViews rv = new RemoteViews(mContext.getPackageName(), R.layout.widget_item);
-//        rv.setImageViewBitmap(R.id.imageView, mWidgetMovieItems.get(position));
         Bitmap bitmap = null;
         try {
             bitmap = Glide.with(mContext).asBitmap()
                     .load(Links.IMAGE_BASE_URL + mWidgetMovieItems.get(position).getPosterPath())
                     .into(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL).get();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
+        } catch (ExecutionException | InterruptedException e) {
             e.printStackTrace();
         }
 

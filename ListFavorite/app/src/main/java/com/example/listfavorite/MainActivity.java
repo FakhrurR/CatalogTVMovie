@@ -68,7 +68,6 @@ public class MainActivity extends AppCompatActivity {
         ActivityMainBinding activityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-//        list.setLayoutManager(new GridLayoutManager(list.getContext(),2));
         activityMainBinding.recyclerViewMovie.setLayoutManager(linearLayoutManager);
         favoriteAdapter = new FavoriteAdapter(cursor, getApplicationContext());
         activityMainBinding.recyclerViewMovie.setAdapter(favoriteAdapter);

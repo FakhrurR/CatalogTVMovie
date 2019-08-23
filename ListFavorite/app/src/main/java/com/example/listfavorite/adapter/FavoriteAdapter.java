@@ -10,13 +10,10 @@ import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
 import com.example.listfavorite.R;
 import com.example.listfavorite.databinding.ItemListMovieBinding;
 
-import static com.example.listfavorite.EntityMovie.COLUMN_ORIGINAL_TITLE;
 import static com.example.listfavorite.EntityMovie.COLUMN_OVERVIEW;
-import static com.example.listfavorite.EntityMovie.COLUMN_POSTER_PATH;
 import static com.example.listfavorite.EntityMovie.COLUMN_RELEASE_DATE;
 import static com.example.listfavorite.EntityMovie.COLUMN_TITLE;
 import static com.example.listfavorite.EntityMovie.COLUMN_VOTE_AVERAGE;
@@ -47,13 +44,6 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHo
             holder.itemListMovieBinding.movieTitle.setText(listFavourite
                     .getString(listFavourite.getColumnIndexOrThrow(COLUMN_TITLE)));
 
-            Glide.with(context).asBitmap().load(POSTER_BASE_URL + listFavourite.getString(
-                    listFavourite.getColumnIndexOrThrow(COLUMN_POSTER_PATH)))
-                    .into(holder.itemListMovieBinding.moviePhoto);
-
-            holder.itemListMovieBinding.movieGenre.setText(listFavourite.getString(
-                    listFavourite.getColumnIndexOrThrow(COLUMN_ORIGINAL_TITLE)));
-
             holder.itemListMovieBinding.movieRate.setText(listFavourite.getString(
                     listFavourite.getColumnIndexOrThrow(COLUMN_VOTE_AVERAGE)
             ));
@@ -63,18 +53,6 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHo
 
             holder.itemListMovieBinding.movieOverview.setText(listFavourite.getString(
                     listFavourite.getColumnIndexOrThrow(COLUMN_OVERVIEW)));
-
-//        holder.itemView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(context, DetailActivity.class);
-//
-//                Uri uri = Uri.parse(CONTENT_URI + "/" + movie.getId());
-//                intent.putExtra(DetailActivity.MOVIE_ID, movie.getId());
-//                intent.setData(uri);
-//                context.startActivity(intent);
-//            }
-//        });
         }
     }
 

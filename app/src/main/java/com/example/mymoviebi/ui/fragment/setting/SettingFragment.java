@@ -23,6 +23,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.Objects;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -94,15 +95,15 @@ public class SettingFragment extends PreferenceFragmentCompat implements Prefere
                 dailyAlarmReceiver.setRepeatingAlarm(getActivity());
                 Toast.makeText(getActivity(), R.string.switchOn, Toast.LENGTH_SHORT).show();
             } else {
-                dailyAlarmReceiver.cancelAlarm(getActivity());
+                dailyAlarmReceiver.cancelAlarm(Objects.requireNonNull(getActivity()));
                 Toast.makeText(getActivity(), R.string.switchOff, Toast.LENGTH_SHORT).show();
             }
         } else if (key.equals(RELEASE_TODAY)) {
             if (isOn) {
-                displayUpcomingMovie();
+                alarmMovieRelease();
                 Toast.makeText(getActivity(), R.string.switchOn, Toast.LENGTH_SHORT).show();
             } else {
-                releaseReminderToday.cancelAlarm(getActivity());
+                releaseReminderToday.cancelAlarm(Objects.requireNonNull(getActivity()));
                 Toast.makeText(getActivity(), R.string.switchOff, Toast.LENGTH_SHORT).show();
             }
         }
@@ -122,12 +123,13 @@ public class SettingFragment extends PreferenceFragmentCompat implements Prefere
         return date;
     }
 
-    private void displayUpcomingMovie() {
+    private void alarmMovieRelease() {
+
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
         Date date = new Date();
         final String currentDate = sdf.format(date);
 
-        MovieService.getAPI().getUpcomingMovie(BuildConfig.API_KEY).enqueue(new Callback<MovieResponse>() {
+        MovieService.getAPI().getReleaseTodayReminder(BuildConfig.API_KEY, currentDate, currentDate).enqueue(new Callback<MovieResponse>() {
             @Override
             public void onResponse(Call<MovieResponse> call, Response<MovieResponse> response) {
                 if (response.isSuccessful()) {

@@ -25,7 +25,7 @@ public interface MovieApi {
 
     @GET("movie/{movie_id}/videos")
     Call<TrailerResponse> getTrailersByMovieId(
-            @Path("movie_id") long movieId,
+            @Path("movie_id") int movieId,
             @Query("api_key") String apiKey
 
     );
@@ -48,10 +48,6 @@ public interface MovieApi {
             @Query("api_key") String apiKey,
             @Query("query") String querySearch
     );
-
-//     https://api.themoviedb.org/3/discover/movie?
-//     api_key={API KEY}&primary_release_date.gte={TODAY DATE}
-//     &primary_release_date.lte={TODAY DATE}
 
     @GET("discover/movie")
     Call<MovieResponse> getReleaseTodayReminder(

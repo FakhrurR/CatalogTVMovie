@@ -29,9 +29,6 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class SearchMovieFragment extends Fragment {
 
 
@@ -42,7 +39,6 @@ public class SearchMovieFragment extends Fragment {
     private MovieAdapter movieAdapter;
 
     public SearchMovieFragment() {
-        // Required empty public constructor
     }
 
 
