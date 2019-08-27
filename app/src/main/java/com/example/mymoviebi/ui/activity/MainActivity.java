@@ -105,9 +105,6 @@ public class MainActivity extends AppCompatActivity
                     .replace(R.id.container_movie, fragment)
                     .commit();
         } else if (id == R.id.action_search) {
-//            Intent mIntent = new Intent(MainActivity.this , SearchableActivity.class);
-//            startActivity(mIntent);
-//            return true;
             fragment = new SearchFragment();
             activityMain2Binding.appbarMain.toolbar.setTitle(R.string.search);
             getSupportFragmentManager().beginTransaction()

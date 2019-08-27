@@ -32,7 +32,6 @@
     <string name="trailer_label">Trailer</string>
     <string name="favorite">Favorit</string>
     <string name="search">Cari</string>
-    <string name="communicate">Komunikasi</string>
 
     <string name="notification_label">Notifikasi</string>
 
@@ -51,9 +50,7 @@
     <string name="title_release_reminder">Pengingat Rilis Hari ini</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="appwidget_text">Katalog Film diSuka</string>
-    <string name="add_widget">Add widget</string>
 
     <string name="search_found">Silahkan Tap tombol Cari diatas untuk Mencari</string>
 

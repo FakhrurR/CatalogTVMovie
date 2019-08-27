@@ -11,12 +11,12 @@ import com.example.mymoviebi.ui.fragment.setting.SettingFragment;
 
 public class SettingActivity extends AppCompatActivity {
 
-    private ActivitySettingBinding activitySettingBinding;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        activitySettingBinding = DataBindingUtil.setContentView(this, R.layout.activity_setting);
+        ActivitySettingBinding activitySettingBinding = DataBindingUtil.setContentView(this, R.layout.activity_setting);
 
         setSupportActionBar(activitySettingBinding.settingToolbar);
         activitySettingBinding.settingToolbar.setTitle(getString(R.string.action_settings));
