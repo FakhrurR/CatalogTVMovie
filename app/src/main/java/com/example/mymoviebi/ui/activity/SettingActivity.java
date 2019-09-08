@@ -11,8 +11,6 @@ import com.example.mymoviebi.ui.fragment.setting.SettingFragment;
 
 public class SettingActivity extends AppCompatActivity {
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -49,7 +49,8 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
         holder.itemListMovieBinding.movieRate.setText(String.valueOf(movie.getVoteAverage()));
         holder.itemListMovieBinding.releaseDate.setText(movie.getReleaseDate());
         holder.itemListMovieBinding.movieOverview.setText(movie.getOverview());
-        Glide.with(context).asBitmap().load(Links.IMAGE_BASE_URL + movie.getPosterPath()).into(holder.itemListMovieBinding.moviePhoto);
+        Glide.with(context).asBitmap().load(Links.IMAGE_BASE_URL + movie.getPosterPath())
+                .into(holder.itemListMovieBinding.moviePhoto);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

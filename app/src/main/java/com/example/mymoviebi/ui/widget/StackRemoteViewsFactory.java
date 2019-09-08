@@ -45,7 +45,6 @@ public class StackRemoteViewsFactory implements RemoteViewsService.RemoteViewsFa
 
     @Override
     public void onDestroy() {
-
     }
 
     @Override

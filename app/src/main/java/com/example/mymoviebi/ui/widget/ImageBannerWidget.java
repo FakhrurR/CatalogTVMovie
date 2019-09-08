@@ -77,8 +77,6 @@ public class ImageBannerWidget extends AppWidgetProvider {
 
             gm.notifyAppWidgetViewDataChanged(ids, R.id.stack_view);
         }
-
-
         super.onReceive(context, intent);
     }
 }

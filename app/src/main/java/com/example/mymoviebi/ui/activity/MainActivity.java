@@ -62,8 +62,6 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main, menu);
-        MenuItem searchItem = menu.findItem(R.id.action_search);
-
         return true;
     }
 
@@ -89,28 +87,19 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.navigation_home) {
             fragment = new MovieFragment();
             activityMain2Binding.appbarMain.toolbar.setTitle(R.string.title_home);
-            getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.container_movie, fragment)
-                    .commit();
         } else if (id == R.id.navigation_dashboard) {
             fragment = new TVShowFragment();
             activityMain2Binding.appbarMain.toolbar.setTitle(R.string.title_dashboard);
-            getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.container_movie, fragment)
-                    .commit();
         } else if (id == R.id.favorite) {
             fragment = new FavoriteFragment();
             activityMain2Binding.appbarMain.toolbar.setTitle(R.string.favorite);
-            getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.container_movie, fragment)
-                    .commit();
         } else if (id == R.id.action_search) {
             fragment = new SearchFragment();
             activityMain2Binding.appbarMain.toolbar.setTitle(R.string.search);
-            getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.container_movie, fragment)
-                    .commit();
         }
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container_movie, fragment)
+                .commit();
         activityMain2Binding.drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
