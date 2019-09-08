@@ -7,11 +7,11 @@
 
  ## UI MyMovieBi
 
- <img src="https://github.com/FakhrurR/MyMovieBi/Screenshot/Navbar.png" width="256">&nbsp;&nbsp;&nbsp;
- <img src="https://github.com/FakhrurR/MyMovieBi/Screenshot/Movie.png" width="256">&nbsp;&nbsp;&nbsp;
- <img src="https://github.com/FakhrurR/MyMovieBi/Screenshot/Favorite.png" width="256">&nbsp;&nbsp;&nbsp;
- <img src="https://github.com/FakhrurR/MyMovieBi/Screenshot/Search.png" width="256">&nbsp;&nbsp;&nbsp;
- <img src="https://github.com/FakhrurR/MyMovieBi/Screenshot/Setting.png" width="256">
+ <img src="https://github.com/FakhrurR/MyMovieBi/tree/master/Screenshot/Navbar.png" width="256">&nbsp;&nbsp;&nbsp;
+ <img src="https://github.com/FakhrurR/MyMovieBi/tree/master/Screenshot/Movie.png" width="256">&nbsp;&nbsp;&nbsp;
+ <img src="https://github.com/FakhrurR/MyMovieBi/tree/master/Screenshot/Favorite.png" width="256">&nbsp;&nbsp;&nbsp;
+ <img src="https://github.com/FakhrurR/MyMovieBi/tree/master/Screenshot/Search.png" width="256">&nbsp;&nbsp;&nbsp;
+ <img src="https://github.com/FakhrurR/MyMovieBi/tree/master/Screenshot/Setting.png" width="256">
 
  This Application has Features:
  
