@@ -7,11 +7,11 @@
 
  ## UI MyMovieBi
 
- <img src="Screenshot/Navbar.png">&nbsp;&nbsp;&nbsp;
- <img src="Screenshot/Movie.png">&nbsp;&nbsp;&nbsp;
- <img src="Screenshot/Favorite.png">&nbsp;&nbsp;&nbsp;
- <img src="Screenshot/Search.png">&nbsp;&nbsp;&nbsp;
- <img src="Screenshot/Setting.png">
+ <img src="Screenshot/Navbar.png" width="256">&nbsp;&nbsp;&nbsp;
+ <img src="Screenshot/Movie.png" width="256">&nbsp;&nbsp;&nbsp;
+ <img src="Screenshot/Favorite.png" width="256">&nbsp;&nbsp;&nbsp;
+ <img src="Screenshot/Search.png" width="256">&nbsp;&nbsp;&nbsp;
+ <img src="Screenshot/Setting.png" width="256">
 
  This Application has Features:
  
